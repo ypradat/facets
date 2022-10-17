@@ -191,7 +191,7 @@ findDiploidLogR <- function(out, cnlr) {
         # find deviance for each ocnlevel
         out1 <- out0[out0$cnlr.median <= max(dipLogR) & is.finite(out0$mafR),]
         # ocn levels cannot be any lower than lr4-1
-        ocnlevels0 <- ocnlevels[ocnlevels > dipLogR[1]-1 & ocnlevels < dipLogR[1]]
+        ocnlevels0 <- ocnlevels[ocnlevels > dipLogR[1]-1 & ocnlevels <= dipLogR[1]]
         dev1 <- sapply(ocnlevels0, dlrdev, dipLogR[1], out1)
         #colr <- rep(1, length(dev1))
         if (length(dipLogR) == 2) {
